@@ -30,3 +30,20 @@ CREATE TABLE question_likes(
 	question_id INTEGER,
 	user_id INTEGER
 );
+
+INSERT INTO
+	users (fname, lname)
+VALUES
+	('Eric', 'Robinson'),
+	('Wenbo', 'Chang');
+
+INSERT INTO
+	questions (title, body, user_id)
+VALUES
+	('Ruby?', 'How do I Ruby?', 1);
+
+INSERT INTO
+	question_followers (question_id, user_id)
+VALUES
+	(1, 2);
+
