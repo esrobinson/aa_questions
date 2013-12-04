@@ -1,4 +1,4 @@
-class QuestionFollowers
+class QuestionFollower
   def self.find_by_id(id)
     q_follower_hash = $db.execute(<<-SQL, :q_follower_id => id).first
       SELECT
@@ -9,7 +9,7 @@ class QuestionFollowers
         question_followers.id = :q_follower_id
     SQL
 
-    QuestionFollowers.new(q_follower_hash)
+    QuestionFollower.new(q_follower_hash)
   end
 
   def self.followers_for_question_id(question_id)
@@ -42,6 +42,23 @@ class QuestionFollowers
     questions.map{ |question| Question.new(question) }
   end
 
+  def self.most_followed_questions(n)
+    questions = $db.execute(<<-SQL, :n => n)
+      SELECT
+      questions.*
+      FROM
+      question_followers
+      JOIN
+        questions ON question_followers.question_id = questions.id
+      GROUP BY
+        questions.id
+      ORDER BY
+        COUNT(*) DESC
+      LIMIT 0, :n
+    SQL
+
+    questions.map{ |question| Question.new(question) }
+  end
 
   attr_accessor :id, :user_id, :question_id
   def initialize(options)

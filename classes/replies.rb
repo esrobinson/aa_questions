@@ -1,4 +1,6 @@
-class Reply
+require_relative 'table'
+
+class Reply < Table
   def self.find_by_id(id)
     reply_hash = $db.execute(<<-SQL, :reply_id => id).first
       SELECT

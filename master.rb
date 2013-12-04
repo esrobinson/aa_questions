@@ -8,5 +8,4 @@ $db.type_translation = true
 class QuestionsDatabase
 end
 
-u = User.find_by_id(2)
-p u.followed_questions.first.followers
+Reply.new("question_id" => 1, "body" => "d", "user_id" => 1).save

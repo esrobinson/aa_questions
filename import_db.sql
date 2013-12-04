@@ -47,21 +47,35 @@ INSERT INTO
 	users (fname, lname)
 VALUES
 	('Eric', 'Robinson'),
-	('Wenbo', 'Chang');
+	('Wenbo', 'Chang'),
+	('New', 'User');
 
 INSERT INTO
 	questions (title, body, user_id)
 VALUES
-	('Ruby?', 'How do I Ruby?', 1);
+	('Ruby?', 'How do I Ruby?', 1),
+	('Rubdgdfghy?', 'How do sgfdgsdfI Ruby?', 1),
+	('SQL?', 'Query?', 2);
 
 INSERT INTO
 	question_followers (question_id, user_id)
 VALUES
-	(1, 2);
+	(1, 2),
+	(1, 1),
+	(2, 2);
 
 INSERT INTO
 	replies (question_id, parent_id, user_id, body)
 VALUES
 	(1, NULL, 2, 'Good question.'),
 	(1, 1, 1, 'I know, it is a good question.');
+
+INSERT INTO
+	question_likes (user_id, question_id)
+VALUES
+	(1, 1),
+	(2, 1),
+	(3, 1),
+(1,1),
+(1,1);
 
