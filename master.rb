@@ -8,4 +8,4 @@ $db.type_translation = true
 class QuestionsDatabase
 end
 
-Reply.new("question_id" => 1, "body" => "d", "user_id" => 1).save
+p Tag.most_popular(1).first.most_popular_questions(1)
